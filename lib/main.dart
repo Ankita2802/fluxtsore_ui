@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluxstore_ui/app/screens/auth/splash_screen.dart';
+import 'package:fluxstore_ui/app/screens/auth/cretaenewpsd_screen.dart';
 import 'package:fluxstore_ui/app/theme/theme_constant.dart';
 import 'package:fluxstore_ui/app/utills/app_key.dart';
 
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           interactive: true,
         ),
       ),
-      home: const SplashScreen(),
+      home: const CreatenewPasswordScreen(),
     );
   }
 }
