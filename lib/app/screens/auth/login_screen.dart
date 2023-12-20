@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluxstore_ui/app/components/app_button.dart';
 import 'package:fluxstore_ui/app/components/textfield.dart';
+import 'package:fluxstore_ui/app/screens/auth/forgotpsw.dart';
 import 'package:fluxstore_ui/app/screens/auth/signup_screen.dart';
 import 'package:fluxstore_ui/app/theme/app_assets.dart';
 import 'package:fluxstore_ui/app/theme/app_string.dart';
@@ -31,6 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
@@ -79,9 +81,18 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    AppStrings.forgotpsw,
-                    style: black400,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const ForgotPasswordScreen()));
+                    },
+                    child: Text(
+                      AppStrings.forgotpsw,
+                      style: black400,
+                    ),
                   ),
                 ],
               ),
@@ -91,8 +102,11 @@ class _LoginScreenState extends State<LoginScreen> {
               AppButton(
                 text: 'LOG IN',
                 onTap: () {},
-                margin: const EdgeInsets.symmetric(horizontal: 75, vertical: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 20),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 75, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 1, vertical: 20),
+                color: AppColors.darkGrey,
               ),
               const SizedBox(
                 height: 20,

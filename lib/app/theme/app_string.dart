@@ -13,4 +13,6 @@ class AppStrings {
       'Your new password must be different\nfrom previously used password';
   static const passwordchange = 'Your password has been changed';
   static const welcomedis = 'Welcome back! Discover now!';
+  static const discoersomething = "Discover something new";
+  static const special = 'Special new arrivals just for you';
 }

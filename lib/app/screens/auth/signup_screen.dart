@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluxstore_ui/app/components/app_button.dart';
 import 'package:fluxstore_ui/app/components/textfield.dart';
+import 'package:fluxstore_ui/app/screens/auth/login_screen.dart';
 import 'package:fluxstore_ui/app/theme/app_assets.dart';
 import 'package:fluxstore_ui/app/theme/app_string.dart';
 import 'package:fluxstore_ui/app/theme/app_theme.dart';
@@ -30,6 +32,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         bottomOpacity: 0.0,
@@ -90,8 +93,11 @@ class _SignupScreenState extends State<SignupScreen> {
               AppButton(
                 text: 'SIGN UP',
                 onTap: () {},
-                margin: const EdgeInsets.symmetric(horizontal: 75, vertical: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 20),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 75, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 1, vertical: 20),
+                color: AppColors.darkGrey,
               ),
               Text(AppStrings.signup, style: black400),
               const SizedBox(
@@ -137,6 +143,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         fontSize: 14,
                         decoration: TextDecoration.underline,
                       ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginScreen()));
+                        },
                     ),
                   ],
                 ),
@@ -145,7 +158,6 @@ class _SignupScreenState extends State<SignupScreen> {
           ),
         ),
       ),
-    
     );
   }
 }

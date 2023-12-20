@@ -10,6 +10,8 @@ class AppButton extends StatelessWidget {
   final TextStyle? style;
   final bool shadow;
   final double? width;
+  final Color? color;
+  final bool? border;
   const AppButton({
     super.key,
     required this.text,
@@ -19,6 +21,8 @@ class AppButton extends StatelessWidget {
     this.style,
     this.shadow = true,
     this.width,
+    this.color,
+    this.border,
   });
 
   @override
@@ -31,8 +35,9 @@ class AppButton extends StatelessWidget {
         margin: margin ?? const EdgeInsets.symmetric(horizontal: 35),
         padding: padding ?? const EdgeInsets.symmetric(vertical: 11),
         decoration: BoxDecoration(
-          color: AppColors.darkGrey,
+          color: color,
           borderRadius: BorderRadius.circular(40),
+          border: border == true ? Border.all(color: AppColors.white) : null,
           boxShadow: [
             if (shadow)
               const BoxShadow(
